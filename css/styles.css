@@ -56,10 +56,11 @@ body {
     grid-gap: 48px;
     padding: 16px 0;
     justify-content: center;
+    justify-items: center;
 }
 
 .container-double img{
-    width: 80%;
+    width: 95%;
     aspect-ratio: 4/4;
     object-fit: fill;
 }

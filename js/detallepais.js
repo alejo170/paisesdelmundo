@@ -199,27 +199,25 @@ const mostrarPais = (data) => {
              
             <div>
                 <h1>${dato.translations.spa.common}</h1>
-                <div>
-                    <p><b>Nombre oficial: </b>${dato.name.official}</p>
-                    <p><b>Area (Km2): </b>${Number(dato.area).toLocaleString('en-US')}</p>
-                    <p><b>Subregion: </b>${renderRegion(dato.subregion)}</p>
-                    <p><b>Ver Mapa: </b><a href="${(dato.maps.googleMaps)}" class="btn-mapa" target="_blank">Aqui</a></p>
-                    <p><b>Moneda: </b>${renderMonedas(dato.currencies)}</p>
-                    <p><b>Idioma: </b>${renderIdiomas(dato.languages)}</p>
-                    <p><b>Inicio de semana: </b>${dato.startOfWeek}</p>
-                    <p><b>Independiente: </b>${(dato.independent) ? "Si": "No"}</p>
-                    <p><b>Salida al mar: </b>${dato.landlocked ? "No": "Si"}</p>
-                    <p><b>Dominio: </b>${dato.tld}</p>
-                    <p><b>Gentilicio: </b>${dato.demonyms[Object.keys(dato.demonyms)[0]].f}</p>
-                    <p><b>Latitud y longitud: </b>${(dato.latlng)}</p>
-                    <p><b>Miembro de la ONU: </b>${(dato.unMember)? "Si": "No"}</p>
-                    <p><b>Zona Horaria: </b>${(dato.timezones)}</p>
-                    <p><b>Lado por el que transitan los carros: </b>${renderTransito(dato.car.side)}</p>
-                    <p><b>Codigo FIFA: </b>${renderFifa(dato.fifa)}</p>
-                    <p><b>Codigo de Marcacion: </b>${renderMarcacion(dato.idd)}</p>
-                    <p><b>Coeficiente de Gini: </b>${renderGini(dato.gini)}</p>
-                    <p><b>Fronteras terrestres: </b>${renderFronteras(dato.borders)}</p>
-                </div>
+                <p><b>Nombre oficial: </b>${dato.name.official}</p>
+                <p><b>Area (Km2): </b>${Number(dato.area).toLocaleString('en-US')}</p>
+                <p><b>Subregion: </b>${renderRegion(dato.subregion)}</p>
+                <p><b>Ver Mapa: </b><a href="${(dato.maps.googleMaps)}" class="btn-mapa" target="_blank">Aqui</a></p>
+                <p><b>Moneda: </b>${renderMonedas(dato.currencies)}</p>
+                <p><b>Idioma: </b>${renderIdiomas(dato.languages)}</p>
+                <p><b>Inicio de semana: </b>${dato.startOfWeek}</p>
+                <p><b>Independiente: </b>${(dato.independent) ? "Si": "No"}</p>
+                <p><b>Salida al mar: </b>${dato.landlocked ? "No": "Si"}</p>
+                <p><b>Dominio: </b>${dato.tld}</p>
+                <p><b>Gentilicio: </b>${dato.demonyms[Object.keys(dato.demonyms)[0]].f}</p>
+                <p><b>Latitud y longitud: </b>${(dato.latlng)}</p>
+                <p><b>Miembro de la ONU: </b>${(dato.unMember)? "Si": "No"}</p>
+                <p><b>Zona Horaria: </b>${(dato.timezones)}</p>
+                <p><b>Lado por el que transitan los carros: </b>${renderTransito(dato.car.side)}</p>
+                <p><b>Codigo FIFA: </b>${renderFifa(dato.fifa)}</p>
+                <p><b>Codigo de Marcacion: </b>${renderMarcacion(dato.idd)}</p>
+                <p><b>Coeficiente de Gini: </b>${renderGini(dato.gini)}</p>
+                <p><b>Fronteras terrestres: </b>${renderFronteras(dato.borders)}</p>
             </div>
         </div>
         `
