@@ -153,21 +153,20 @@ const renderRegion = (object) => {
 
 //Funcion que renderiza los codigo de marcacion de un pais
 const renderMarcacion = (object) =>{
-    
-    const codigoMarcacion = mapProp(object);
-    const codigoMarcacionArray = codigoMarcacion.map(([key, value]) => value); 
-    
+
     let output = "";
-    if(codigoMarcacionArray.length === 0) {
+    const codigoMarcacion = mapProp(object);
+    if(codigoMarcacion.length === 0) {
         output += "No hay datos";
     }
-    for (let i = 0; i < codigoMarcacionArray.length; i++) {
-        output+=codigoMarcacionArray[i];
-        if (i < codigoMarcacionArray.length - 1){
-            output+="";
-        }
+    else {
+        prefijoMarcacion = codigoMarcacion[0][1];
+        sufijoMarcacion = codigoMarcacion[1][1][0];
+        output += prefijoMarcacion + sufijoMarcacion;
     }
+   
     return output;
+
 }
 
 //Funcion que renderiza el coeficiente gini de un pais
