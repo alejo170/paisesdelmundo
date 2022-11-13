@@ -13,7 +13,7 @@ const fetchData = async () => {
     try {
         const res = await fetch('https://restcountries.com/v3.1/all');
         const data = await res.json();
-                
+        console.log(data);        
         const filterData = data.filter(item => item.translations.spa.common === params)
         paises = data;
         mostrarPais(filterData);
@@ -194,7 +194,7 @@ const mostrarPais = (data) => {
     elementos += `
         <div class="container-double">
             
-            <img src="${renderEscudo(dato.coatOfArms.png)}" alt="Escudo ${dato.translations.spa.common}" >
+            <img src="${renderEscudo(dato.coatOfArms.svg)}" alt="Escudo ${dato.translations.spa.common}" >
              
             <div>
                 <h1>${dato.translations.spa.common}</h1>
@@ -207,12 +207,12 @@ const mostrarPais = (data) => {
                 <p><b>Inicio de semana: </b>${dato.startOfWeek}</p>
                 <p><b>Independiente: </b>${(dato.independent) ? "Si": "No"}</p>
                 <p><b>Salida al mar: </b>${dato.landlocked ? "No": "Si"}</p>
-                <p><b>Dominio: </b>${dato.tld}</p>
+                <p><b>Dominio de internet: </b>${dato.tld}</p>
                 <p><b>Gentilicio: </b>${dato.demonyms[Object.keys(dato.demonyms)[0]].f}</p>
-                <p><b>Latitud y longitud: </b>${(dato.latlng)}</p>
+                <p><b>Latitud: </b>${(dato.latlng[0])} <b>Longitud: </b>${(dato.latlng[1])}</p>
                 <p><b>Miembro de la ONU: </b>${(dato.unMember)? "Si": "No"}</p>
                 <p><b>Zona Horaria: </b>${(dato.timezones)}</p>
-                <p><b>Lado por el que transitan los carros: </b>${renderTransito(dato.car.side)}</p>
+                <p><b>¿Por que lado se conduce?: </b>${renderTransito(dato.car.side)}</p>
                 <p><b>Codigo FIFA: </b>${renderFifa(dato.fifa)}</p>
                 <p><b>Codigo de Marcacion: </b>${renderMarcacion(dato.idd)}</p>
                 <p><b>Coeficiente de Gini: </b>${renderGini(dato.gini)}</p>
