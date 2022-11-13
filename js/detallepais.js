@@ -43,6 +43,7 @@ const mapProp = (propiedad) => {
     }
 }
 
+//Funcion que renderiza las fronteras terrestres de un pais
 const renderFronteras = (object) => {
 
     if (object !== null && object !== undefined) {
@@ -187,6 +188,25 @@ const renderGini = (object) =>{
     return output;
 }
 
+//Funcion que renderiza las zonas horarias de un pais
+const renderZonaHoraria = (object) => {
+    
+    const zona = mapProp(object);
+    const zonaArray = zona.map(([key, value]) => value);
+   
+    let output = "";
+    if(zonaArray.length === 0) {
+        output += "No hay datos";
+    }
+    for (let i = 0; i < zonaArray.length; i++) {
+        output+=zonaArray[i];
+        if (i < zonaArray.length - 1){
+            output+=", ";
+        }
+    }
+    return output;
+}
+
 //Funcion que muestra un pais
 const mostrarPais = (data) => {
     dato =  data[0];
@@ -196,7 +216,7 @@ const mostrarPais = (data) => {
             
             <img src="${renderEscudo(dato.coatOfArms.svg)}" alt="Escudo ${dato.translations.spa.common}" >
              
-            <div>
+            <div class="container">
                 <h1>${dato.translations.spa.common}</h1>
                 <p><b>Nombre oficial: </b>${dato.name.official}</p>
                 <p><b>Area (Km2): </b>${Number(dato.area).toLocaleString('en-US')}</p>
@@ -211,7 +231,7 @@ const mostrarPais = (data) => {
                 <p><b>Gentilicio: </b>${dato.demonyms[Object.keys(dato.demonyms)[0]].f}</p>
                 <p><b>Latitud: </b>${(dato.latlng[0])} <b>Longitud: </b>${(dato.latlng[1])}</p>
                 <p><b>Miembro de la ONU: </b>${(dato.unMember)? "Si": "No"}</p>
-                <p><b>Zona Horaria: </b>${(dato.timezones)}</p>
+                <p><b>Zona Horaria: </b>${renderZonaHoraria(dato.timezones)}</p>
                 <p><b>¿Por que lado se conduce?: </b>${renderTransito(dato.car.side)}</p>
                 <p><b>Codigo FIFA: </b>${renderFifa(dato.fifa)}</p>
                 <p><b>Codigo de Marcacion: </b>${renderMarcacion(dato.idd)}</p>
